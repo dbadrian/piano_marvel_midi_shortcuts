@@ -1,0 +1,36 @@
+#!/bin/bash
+
+NOTE_START_PRACTICE=107
+NOTE_START_ASSESSMENT=108
+NOTE_REPEAT_LAST_MODE='UNSET'
+NOTE_INCREASE_TEMPO='UNSET'
+NOTE_DECREASE_TEMPO='UNSET'
+NOTE_NEXT_SONG="UNSET"
+NOTE_PREV_SONG="UNSET"
+NOTE_EXIT_SCREEN='UNSET'
+
+
+# Do not modify below ( unless of course you really want to :) )
+KEY_START_PRACTICE='1'
+KEY_START_ASSESSMENT='2'
+KEY_REPEAT_LAST_MODE='space'
+KEY_INCREASE_TEMPO='plus'
+KEY_DECREASE_TEMPO='minus'
+KEY_NEXT_SONG="Right"
+KEY_PREV_SONG="Left"
+KEY_EXIT_SCREEN='Esc'
+
+aseqdump -p "$1" | \
+while IFS=" ," read src ev1 ev2 ch label1 data1 label2 data2 rest; do
+    case "$ev1 $ev2 $data1" in
+        "Note on ${NOTE_START_PRACTICE}" ) xdotool key ${KEY_START_PRACTICE} ;;
+        "Note on ${NOTE_START_ASSESSMENT}" ) xdotool key ${KEY_START_ASSESSMENT} ;;
+        "Note on ${NOTE_REPEAT_LAST_MODE}" ) xdotool key ${KEY_REPEAT_LAST_MODE} ;;
+        "Note on ${NOTE_INCREASE_TEMPO}" ) xdotool key ${KEY_INCREASE_TEMPO} ;;
+        "Note on ${NOTE_DECREASE_TEMPO}" ) xdotool key ${KEY_DECREASE_TEMPO} ;;
+        "Note on ${NOTE_NEXT_SONG}" ) xdotool key ${KEY_NEXT_SONG} ;;
+        "Note on ${NOTE_PREV_SONG}" ) xdotool key ${KEY_PREV_SONG} ;;
+        "Note on ${NOTE_EXIT_SCREEN}" ) xdotool key ${KEY_EXIT_SCREEN} ;;
+    esac
+done
+
