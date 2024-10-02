@@ -1,4 +1,4 @@
 # Piano Marvel Midi Shortcuts
 
 Barebones shell script you can start to use your piano keyboard to stop/start practise/exam mode.
-Configure to your liking and install the required `xdotool` .
+Configure to your liking and install the required `xdotool` and whatever package provide `aseqdump` for you (e.g., alsa-utils on arch).
